@@ -31,7 +31,13 @@ use JSON;
 
 parameter json_opts => (
   isa => 'HashRef',
-  default => sub { return { ascii => 1 } },
+  default => sub { return { } },
+  initializer => sub {
+    my ($self, $value, $set) = @_;
+
+    %$value = (ascii => 1, %$value);
+    $set->($value);
+  }
 );
 
 role {
