@@ -34,7 +34,8 @@ MooseX::Storage::Format::JSON.  However, it can also be parameterized:
 
 At present, C<json_opts> is the only parameter, and is used when calling the
 C<to_json> and C<from_json> routines provided by the L<JSON|JSON> library.
-The given values are merged into the defaults, which are as follows:
+Default values are merged into the given hashref (with explict values taking
+priority).  The defaults are as follows:
 
   { ascii => 1 }
 
