@@ -23,6 +23,21 @@ use MooseX::Role::Parameterized;
   # unpack the JSON string into an object
   my $p2 = Point->thaw($json);
 
+...in other words, it can be used as a drop-in replacement for
+MooseX::Storage::Format::JSON.  However, it can also be parameterized:
+
+  package Point;
+  use Moose;
+  use MooseX::Storage;
+
+  with Storage(format => [ JSONpm => { json_opts => { pretty => 1 } } ]);
+
+At present, C<json_opts> is the only parameter, and is used when calling the
+C<to_json> and C<from_json> routines provided by the L<JSON|JSON> library.
+The given values are merged into the defaults, which are as follows:
+
+  { ascii => 1 }
+
 =cut
 
 use namespace::autoclean;
