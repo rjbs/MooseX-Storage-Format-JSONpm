@@ -1,5 +1,8 @@
 Revision history for {{$dist->name}}
 
+{{$NEXT}}
+          repackage to add META.yml
+
 0.093091  2009-11-05
           improve the application of defaults
           more docs about using this with parameters
